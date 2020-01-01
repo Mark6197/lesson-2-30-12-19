@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace JaggedArrays
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[][,] jaggedMultiArray = new int[3][,];
+
+            jaggedMultiArray[0] = new int[3, 2] { { 1, 2 }, { 2, 3 }, { 4, 5 } };
+            jaggedMultiArray[1] = new int[3, 3] { { 1, 2, 3 }, { 2, 3, 4 }, { 4, 5, 6 } };
+            jaggedMultiArray[2] = new int[2, 2] { { 4, 9 }, { 5, 8 } };
+            for (int i = 0; i < 3; i++)
+            {
+                Console.WriteLine($"now entering array number: {i + 1}");
+                int rows = jaggedMultiArray[i].GetLength(0);
+                int columns = jaggedMultiArray[i].GetLength(1);
+                for (int j = 0; j < rows; j++)
+                {
+                    Console.WriteLine();
+                    Console.Write($"Row {j + 1}   ");
+                    
+                    for (int m = 0; m < columns; m++)
+                    {
+                        Console.Write($"   {jaggedMultiArray[i][j, m]}   ");
+                    }
+                    
+                }
+                Console.WriteLine();
+            }
+
+        }
+    }
+}
